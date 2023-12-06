@@ -5,18 +5,20 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     public float moveSpeed = 1f;
 
     public MyInputSystem playerControls;
 
-    private InputAction Move;
-    private InputAction Jump;
-    private InputAction Dash;
+    InputAction Move;
+    InputAction Jump;
+    InputAction Dash;
 
-    private float moveDir = 0f;
+    Animator MyAnimator;
 
-    public bool bCanJump = true;
+    float moveDir = 0f;
+
+    bool canJump = true;
 
     void Awake()
     {
@@ -44,19 +46,42 @@ public class Player : MonoBehaviour
         Dash.Disable();
     }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        MyAnimator = GetComponent<Animator>();
+    }
+
     void Update()
     {
         moveDir = Move.ReadValue<float>();
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2 (moveDir * moveSpeed, rb.velocity.y);
+        Run();
     }
 
-    private void JumpAction(InputAction.CallbackContext context)
+    void Run()
+    {
+        rb.velocity = new Vector2(moveDir * moveSpeed, rb.velocity.y);
+        bool isMoving = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
+
+        FlipSprite(isMoving);
+        MyAnimator.SetBool("Running", isMoving);
+    }
+
+    void FlipSprite(bool moving)
+    {
+        if (!moving)
+            return;
+
+        transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
+    }
+
+    void JumpAction(InputAction.CallbackContext context)
     {
         Debug.Log("Jump!");
-        bCanJump = false;
+        canJump = false;
     }
 
     private void DashAction(InputAction.CallbackContext context) 
