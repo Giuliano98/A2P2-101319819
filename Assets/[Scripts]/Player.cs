@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     private float moveDir = 0f;
 
+    public bool bCanJump = true;
+
     void Awake()
     {
         playerControls = new MyInputSystem();
@@ -25,10 +27,14 @@ public class Player : MonoBehaviour
     {
         Move = playerControls.MyController.Movement;
         Move.Enable();
+
         Jump = playerControls.MyController.Jump;
         Jump.Enable();
+        Jump.performed += JumpAction;
+
         Dash = playerControls.MyController.Dash;
         Dash.Enable();
+        Dash.performed += DashAction;
     }
 
     void OnDisable()
@@ -38,12 +44,6 @@ public class Player : MonoBehaviour
         Dash.Disable();
     }
 
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
         moveDir = Move.ReadValue<float>();
@@ -51,5 +51,16 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2 (moveDir * moveSpeed, rb.velocity.y);
+    }
+
+    private void JumpAction(InputAction.CallbackContext context)
+    {
+        Debug.Log("Jump!");
+        bCanJump = false;
+    }
+
+    private void DashAction(InputAction.CallbackContext context) 
+    {
+        Debug.Log("Dash!");    
     }
 }
