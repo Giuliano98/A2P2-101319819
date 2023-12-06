@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     public float moveSpeed = 1f;
+    public float jumpSpeed = 5f;
 
     public MyInputSystem playerControls;
 
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
 
     float moveDir = 0f;
 
-    bool canJump = true;
+    public bool canJump = true;
 
     void Awake()
     {
@@ -80,7 +81,11 @@ public class Player : MonoBehaviour
 
     void JumpAction(InputAction.CallbackContext context)
     {
+        if (!canJump)
+            return;
+
         Debug.Log("Jump!");
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         canJump = false;
     }
 
