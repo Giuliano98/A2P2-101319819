@@ -110,7 +110,6 @@ public class Player : MonoBehaviour
 
     private void DashAction(InputAction.CallbackContext context) 
     {
-        Debug.Log("Dash!");
         if (!canDash)
             return;
 
@@ -119,7 +118,6 @@ public class Player : MonoBehaviour
         Vector3 tempScale = spawnedPrefab.transform.localScale;
         tempScale.x *= Mathf.Sign(transform.localScale.x);
         spawnedPrefab.transform.localScale = tempScale;
-        Debug.Log(spawnedPrefab.transform.localScale);
     }
 
     private IEnumerator Dashing()
@@ -142,7 +140,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
-
 
     void CheckInAirState()
     {
