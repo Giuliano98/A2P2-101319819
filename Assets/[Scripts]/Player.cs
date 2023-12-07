@@ -6,8 +6,16 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    public Animator MyAnimator;
+
+
+    [Header("Movement Settings")]
     public float moveSpeed = 1f;
     public float jumpSpeed = 5f;
+    float moveDir = 0f;
+
+    public bool onGround = false;
+    public bool canJump = true;
 
     [SerializeField]
     MyInputSystem playerControls;
@@ -15,12 +23,13 @@ public class Player : MonoBehaviour
     InputAction Jump;
     InputAction Dash;
 
-    public Animator MyAnimator;
-
-    float moveDir = 0f;
-
-    public bool onGround = false;
-    public bool canJump = true;
+    [Header("Dash Settings")]
+    [SerializeField] GameObject DashEffectPrefab;
+    [SerializeField] float dashSpeed = 10f;
+    [SerializeField] float dashDuration = 1f;
+    [SerializeField] float dashCooldown = 1f;
+    bool isDashing = false;
+    bool canDash = true;
 
     void Awake()
     {
@@ -56,6 +65,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isDashing)
+            return;
+
         moveDir = Move.ReadValue<float>();
 
         if (!onGround)
@@ -64,6 +76,9 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDashing)
+            return;
+
         Run();
     }
 
@@ -95,8 +110,39 @@ public class Player : MonoBehaviour
 
     private void DashAction(InputAction.CallbackContext context) 
     {
-        Debug.Log("Dash!");    
+        Debug.Log("Dash!");
+        if (!canDash)
+            return;
+
+        StartCoroutine(Dashing());
+        GameObject spawnedPrefab = Instantiate(DashEffectPrefab, transform.position, Quaternion.identity);
+        Vector3 tempScale = spawnedPrefab.transform.localScale;
+        tempScale.x *= Mathf.Sign(transform.localScale.x);
+        spawnedPrefab.transform.localScale = tempScale;
+        Debug.Log(spawnedPrefab.transform.localScale);
     }
+
+    private IEnumerator Dashing()
+    {
+        canDash = false;
+        isDashing = true;
+        MyAnimator.SetBool("Dashing", true);
+
+        float tempGrav = rb.gravityScale;
+        rb.gravityScale = 0f;
+
+        float tempDir = Mathf.Sign(transform.localScale.x);
+        rb.velocity = new Vector2(tempDir * dashSpeed, 0f);
+
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+        MyAnimator.SetBool("Dashing", false);
+        rb.gravityScale = tempGrav;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
+
 
     void CheckInAirState()
     {

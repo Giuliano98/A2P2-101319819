@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb82c76d98808ea4da3d3bfecd72b784
+guid: ce80062683888b444a0b1bc309ba91ac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack (78x58)_0
+      name: Dash (44x28)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 0
-        width: 78
-        height: 58
+        width: 15
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79338afb191e7504aae6871d5295e3a3
-      internalID: -1710015011
+      spriteID: f9185ebfe3dcb254bb482e4697fb1a22
+      internalID: 1905031731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (78x58)_1
+      name: Dash (44x28)_1
       rect:
         serializedVersion: 2
-        x: 78
+        x: 30
         y: 0
-        width: 78
-        height: 58
+        width: 15
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f131e366ce34034ab6dd3ea465e0f01
-      internalID: -12808438
+      spriteID: 0bdd4ee83796abd4292ad597a99ba82f
+      internalID: -2045709269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (78x58)_2
+      name: Dash (44x28)_2
       rect:
         serializedVersion: 2
-        x: 156
+        x: 45
         y: 0
-        width: 78
-        height: 58
+        width: 15
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e4ac0db25800104cbb66570dae95530
-      internalID: 760590614
+      spriteID: db58c087698b96a42bc42a063f4ed132
+      internalID: -2100021554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f33e0fcd592dd84096fcebe01fcf410
+      internalID: -1805190554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_4
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d927561a9999bb4ab1cd9c543cb0799
+      internalID: -1743882380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67cdbe97d06cd548b48865eceece7d4
+      internalID: 650992832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_6
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1d9940717e70b41aa8d2392a87244b
+      internalID: -897340509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_7
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5effcaf3ee96f9f48a853d5933b1d089
+      internalID: 1164795420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_8
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f55941409c76e4b884e5d93aa28c8f
+      internalID: 954696692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dash (44x28)_9
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1ca128531695e4283922e44406f094
+      internalID: -806536821
       vertices: []
       indices: 
       edges: []
@@ -196,9 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack (78x58)_0: -1710015011
-      Attack (78x58)_1: -12808438
-      Attack (78x58)_2: 760590614
+      Dash (44x28)_0: 1905031731
+      Dash (44x28)_1: -2045709269
+      Dash (44x28)_2: -2100021554
+      Dash (44x28)_3: -1805190554
+      Dash (44x28)_4: -1743882380
+      Dash (44x28)_5: 650992832
+      Dash (44x28)_6: -897340509
+      Dash (44x28)_7: 1164795420
+      Dash (44x28)_8: 954696692
+      Dash (44x28)_9: -806536821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

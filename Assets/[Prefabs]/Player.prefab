@@ -218,11 +218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab6b3fb009db1a4bb878d167059a09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyAnimator: {fileID: 1790375855902020431}
   moveSpeed: 5
   jumpSpeed: 11
-  MyAnimator: {fileID: 1790375855902020431}
   onGround: 0
   canJump: 1
+  dashSpeed: 20
+  dashDuration: 0.1
+  dashCooldown: 1
 --- !u!95 &1790375855902020431
 Animator:
   serializedVersion: 5
