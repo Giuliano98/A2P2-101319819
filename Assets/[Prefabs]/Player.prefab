@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.06}
+  m_Size: {x: 0.26, y: 0.06}
   m_EdgeRadius: 0
 --- !u!114 &4849276661054141470
 MonoBehaviour:
@@ -194,7 +194,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 532d080cbd2103749a88cbb2e9173400, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -204,7 +204,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5385484332155652572
 MonoBehaviour:
@@ -219,7 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpSpeed: 14
+  jumpSpeed: 11
+  MyAnimator: {fileID: 1790375855902020431}
+  onGround: 0
   canJump: 1
 --- !u!95 &1790375855902020431
 Animator:

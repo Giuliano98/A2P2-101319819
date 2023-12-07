@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public float moveSpeed = 1f;
     public float jumpSpeed = 5f;
 
-    public MyInputSystem playerControls;
+    [SerializeField]
+    MyInputSystem playerControls;
     InputAction Move;
     InputAction Jump;
     InputAction Dash;
@@ -20,8 +21,6 @@ public class Player : MonoBehaviour
 
     public bool onGround = false;
     public bool canJump = true;
-    public bool isFalling = true;
-    //public bool inAirCheck = false;
 
     void Awake()
     {
@@ -58,6 +57,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         moveDir = Move.ReadValue<float>();
+
         if (!onGround)
             CheckInAirState();
     }
@@ -65,14 +65,13 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Run();
-
     }
 
     void Run()
     {
         rb.velocity = new Vector2(moveDir * moveSpeed, rb.velocity.y);
-        bool isMoving = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
 
+        bool isMoving = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
         FlipSprite(isMoving);
         MyAnimator.SetBool("Running", isMoving);
     }
@@ -90,10 +89,8 @@ public class Player : MonoBehaviour
         if (!canJump)
             return;
         canJump = false;
-        MyAnimator.SetBool("Jumping", true);
+
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-        MyAnimator.SetBool("Jumping", false);
-        //Debug.Log("Jump!");
     }
 
     private void DashAction(InputAction.CallbackContext context) 
@@ -104,12 +101,7 @@ public class Player : MonoBehaviour
     void CheckInAirState()
     {
         float Yaxis = rb.velocity.y;
-
-        isFalling = Mathf.Sign(Yaxis) < Mathf.Epsilon;
-
-        MyAnimator.SetBool("Falling", isFalling);
         MyAnimator.SetFloat("Yaxis", Yaxis);
-
     }
 
 }
