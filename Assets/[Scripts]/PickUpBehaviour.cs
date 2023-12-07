@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
+
 public enum PickUpType
 {
     Key,
@@ -9,27 +11,21 @@ public enum PickUpType
 
 public class PickUpBehaviour : MonoBehaviour
 {
-    public Animator MyAnimator;
-    public PickUpType pickUpType = PickUpType.Key;
-
-    private void Awake()
-    {
-        MyAnimator = GetComponent<Animator>();
-    }
+    Animator MyAnimator;
+    [SerializeField] PickUpType pickUpType = PickUpType.Key;
+    [SerializeField] float fadeTime = 1f;
+    SpriteRenderer spriteRenderer;
+    bool flag = false;
 
     private void Start()
     {
-        switch (pickUpType)
-        {
-            case PickUpType.Key:
-                MyAnimator.Play("Anim_KeyIdle");
-                break;
-            case PickUpType.Diamond:
-                MyAnimator.Play("Anim_DiamonIdle");
-                break;
-            default:
-                break;
-        }
+        MyAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (pickUpType == PickUpType.Key) 
+            MyAnimator.Play("Anim_KeyIdle");
+        else if (pickUpType == PickUpType.Diamond)
+            MyAnimator.Play("Anim_DiamondIdle");
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -37,26 +33,27 @@ public class PickUpBehaviour : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        OnPickUp();
         GetComponent<Collider2D>().enabled = false;
-        StartCoroutine(DestroyAfterDelay(2f));
+        OnPickUp();
+
+        flag = true;
+
+        if (pickUpType == PickUpType.Key)
+            MyAnimator.Play("Anim_KeyFinish");
+        else if (pickUpType == PickUpType.Diamond)
+            MyAnimator.Play("Anim_DiamondFinish");
+
+        Destroy(gameObject, fadeTime);
     }
 
-    IEnumerator DestroyAfterDelay(float delay)
+    void Update()
     {
-        switch (pickUpType)
-        {
-            case PickUpType.Key:
-                MyAnimator.Play("Anim_KeyFinish");
-                break;
-            case PickUpType.Diamond:
-                MyAnimator.Play("Anim_DiamonFinish");
-                break;
-            default:
-                break;
-        }
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        if (!flag)
+            return;
+
+        Color color = spriteRenderer.color;
+        color.a -= Time.deltaTime / fadeTime;
+        spriteRenderer.color = color;
     }
 
     protected virtual void OnPickUp() { }
