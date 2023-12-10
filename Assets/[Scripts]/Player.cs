@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
     bool isDashing = false;
     bool canDash = true;
 
+    [Header("Respawn Settings")]
+    public ScreenFade screenFade;
+    public Vector3 lastCheckpoint;
+    public bool invincibilityFrames = false;
+
     void Awake()
     {
         playerControls = new MyInputSystem();
@@ -61,6 +66,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         MyAnimator = GetComponent<Animator>();
+        lastCheckpoint = transform.position;
     }
 
     void Update()
@@ -145,6 +151,27 @@ public class Player : MonoBehaviour
     {
         float Yaxis = rb.velocity.y;
         MyAnimator.SetFloat("Yaxis", Yaxis);
+    }
+
+    public void DieAndRespawn()
+    {
+        MyAnimator.SetTrigger("Die");
+        Move.Disable();
+        Jump.Disable();
+        Dash.Disable();
+        StartCoroutine(DeathSequence());
+    }
+
+    IEnumerator DeathSequence()
+    {
+        screenFade.FadeOut();
+
+        yield return new WaitForSeconds(screenFade.fadeDuration);
+        Move.Enable();
+        Jump.Enable();
+        Dash.Enable();
+        transform.position = lastCheckpoint;
+        screenFade.FadeIn();
     }
 
 }
