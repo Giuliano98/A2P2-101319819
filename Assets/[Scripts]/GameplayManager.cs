@@ -8,11 +8,21 @@ public class GameplayManager : MonoBehaviour
     public int FoundKeys = 0;
     public int FoundDiamonds = 0;
     public int EnemiesDefeated = 0;
+    public int playerLives = 3;
+
 
     void Start()
     {
 
     }
 
-    
+    public void PlayerLoseLive()
+    {
+        playerLives--;
+
+        if (playerLives == 0) 
+        {
+
+        }
+    }
 }

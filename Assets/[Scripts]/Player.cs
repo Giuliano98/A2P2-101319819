@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     public Animator MyAnimator;
-
+    GameplayManager gameplayManager;
 
     [Header("Movement Settings")]
     public float moveSpeed = 1f;
@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         MyAnimator = GetComponent<Animator>();
         lastCheckpoint = transform.position;
+        gameplayManager = FindObjectOfType<GameplayManager>();
     }
 
     void Update()
@@ -156,9 +157,7 @@ public class Player : MonoBehaviour
     public void DieAndRespawn()
     {
         MyAnimator.SetTrigger("Die");
-        Move.Disable();
-        Jump.Disable();
-        Dash.Disable();
+        DisablePlayerButtonAction();
         StartCoroutine(DeathSequence());
     }
 
@@ -167,11 +166,26 @@ public class Player : MonoBehaviour
         screenFade.FadeOut();
 
         yield return new WaitForSeconds(screenFade.fadeDuration);
+
+        if (gameplayManager.playerLives > 0)
+        {
+            EnablePlayerButtonAction();
+            transform.position = lastCheckpoint;
+            screenFade.FadeIn();
+        }
+        
+    }
+
+    public void EnablePlayerButtonAction()
+    {
         Move.Enable();
         Jump.Enable();
         Dash.Enable();
-        transform.position = lastCheckpoint;
-        screenFade.FadeIn();
     }
-
+    public void DisablePlayerButtonAction()
+    {
+        Move.Disable();
+        Jump.Disable();
+        Dash.Disable();
+    }
 }
