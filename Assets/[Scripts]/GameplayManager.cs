@@ -9,11 +9,11 @@ public class GameplayManager : MonoBehaviour
     public int FoundDiamonds = 0;
     public int EnemiesDefeated = 0;
     public int playerLives = 3;
-
+    Player player;
 
     void Start()
     {
-
+        player = FindObjectOfType<Player>();
     }
 
     public void PlayerLoseLive()
@@ -22,7 +22,8 @@ public class GameplayManager : MonoBehaviour
 
         if (playerLives == 0) 
         {
-
+            // Gameover UI
+            player.DisablePlayerButtonAction();
         }
     }
 }

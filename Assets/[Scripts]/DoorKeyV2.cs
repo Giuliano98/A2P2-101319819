@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DoorKeyV2 : MonoBehaviour
 {
-    Animator playerAnimator;
+    Animator myAnimator;
     GameplayManager gameplayManager;
 
     private void Start()
     {
-        playerAnimator = GetComponent<Animator>();
+        myAnimator = GetComponent<Animator>();
         gameplayManager = FindObjectOfType<GameplayManager>();
 
         gameplayManager.TotalKeys++;
@@ -21,7 +21,7 @@ public class DoorKeyV2 : MonoBehaviour
 
         Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>(), true);
         gameplayManager.FoundKeys++;
-        playerAnimator.SetBool("Finish", true);
+        myAnimator.SetBool("Finish", true);
         Destroy(gameObject, .65f);
     }
 }

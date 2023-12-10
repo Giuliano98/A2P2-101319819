@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Diamond : MonoBehaviour
 {
-    Animator playerAnimator;
+    Animator myAnimator;
     GameplayManager gameplayManager;
 
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
+        myAnimator = GetComponent<Animator>();
         gameplayManager = FindObjectOfType<GameplayManager>();
     }
 
@@ -20,7 +20,7 @@ public class Diamond : MonoBehaviour
 
         Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>(), true);
         gameplayManager.FoundDiamonds++;
-        playerAnimator.SetBool("Finish", true);
+        myAnimator.SetBool("Finish", true);
         Destroy(gameObject, .7f);
     }
 }
