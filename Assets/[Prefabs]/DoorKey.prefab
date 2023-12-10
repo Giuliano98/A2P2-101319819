@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 653014466541603646}
   - component: {fileID: 1461181209451929583}
   - component: {fileID: 858849488647793655}
-  - component: {fileID: 1427094668390948475}
-  - component: {fileID: 6956527033724615823}
-  - component: {fileID: 4096954783780304845}
+  - component: {fileID: 8594060338022327964}
+  - component: {fileID: 6850481858666817302}
   m_Layer: 0
   m_Name: DoorKey
   m_TagString: DoorKey
@@ -123,21 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.26
---- !u!114 &1427094668390948475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284598733511122982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20c9dc86b04b0a4ca9b93082426b683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpType: 0
-  fadeTime: 1.2
---- !u!95 &6956527033724615823
+--- !u!95 &8594060338022327964
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -147,7 +132,7 @@ Animator:
   m_GameObject: {fileID: 284598733511122982}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 672ae2039bca66546b4c318dc8de12de, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7caa378d7016f3545b0e576366dcb960, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -158,17 +143,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4096954783780304845
+--- !u!114 &6850481858666817302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284598733511122982}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bedf972e8b9b844bb561622c9e68d08, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c6e79b17f1e9ca4099d97b4b696ebe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpType: 0
-  fadeTime: 1.2
