@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DoorKey
   - Diamond
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3200122459
+    locked: 0
+  - name: Objects
+    uniqueID: 2854161703
     locked: 0

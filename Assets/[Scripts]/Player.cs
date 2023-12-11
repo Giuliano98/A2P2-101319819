@@ -194,4 +194,9 @@ public class Player : MonoBehaviour
         Jump.Disable();
         Dash.Disable();
     }
+
+    public void test1()
+    {
+        Debug.Log("TEST1");
+    }
 }

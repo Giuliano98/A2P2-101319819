@@ -12,6 +12,9 @@ public class GroundCheck : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Checkpoint"))
+            return;
+
         playerScript.onGround = true;
         playerScript.canJump = true;
         playerScript.MyAnimator.SetFloat("Yaxis", 0f);
@@ -20,6 +23,9 @@ public class GroundCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("Checkpoint"))
+            return;
+
         playerScript.onGround = false;
     }
 }

@@ -9,6 +9,11 @@ public class Diamond : MonoBehaviour
 
     void Start()
     {
+        int randomValue = Random.Range(0, 2);
+        if (randomValue == 0)
+            Destroy(gameObject);
+
+
         myAnimator = GetComponent<Animator>();
         gameplayManager = FindObjectOfType<GameplayManager>();
     }
