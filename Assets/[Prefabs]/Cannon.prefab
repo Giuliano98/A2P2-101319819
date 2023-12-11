@@ -166,5 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  maxDistance: 10
+  maxDistance: 4
+  cannonballPrefab: {fileID: 7488957296197245184, guid: f180de40201f19c4f90a75562bb8e5b9, type: 3}
   reloadCooldown: 3
