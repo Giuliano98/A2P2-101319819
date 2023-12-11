@@ -9,6 +9,11 @@ public class Player : MonoBehaviour
     public Animator MyAnimator;
     GameplayManager gameplayManager;
 
+    [Header("Movement Audio")]
+    public AudioClip jumpSound;
+    public AudioClip dashSound;
+    public AudioClip hitSound;
+
     [Header("Movement Settings")]
     public float moveSpeed = 1f;
     public float jumpSpeed = 5f;
@@ -113,6 +118,7 @@ public class Player : MonoBehaviour
         canJump = false;
 
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        AudioSource.PlayClipAtPoint(jumpSound, transform.position);
     }
 
     private void DashAction(InputAction.CallbackContext context) 
@@ -125,6 +131,7 @@ public class Player : MonoBehaviour
         Vector3 tempScale = spawnedPrefab.transform.localScale;
         tempScale.x *= Mathf.Sign(transform.localScale.x);
         spawnedPrefab.transform.localScale = tempScale;
+        AudioSource.PlayClipAtPoint(dashSound, transform.position);
     }
 
     private IEnumerator Dashing()
@@ -159,6 +166,7 @@ public class Player : MonoBehaviour
         if (invincibilityFrames)
             return;
         //MyAnimator.SetTrigger("Die");
+        AudioSource.PlayClipAtPoint(hitSound, transform.position);
         invincibilityFrames = true;
         MyAnimator.SetBool("Die", true);
         DisablePlayerButtonAction();

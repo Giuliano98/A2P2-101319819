@@ -7,6 +7,8 @@ public class CannonBallWeakPoint : MonoBehaviour
     GameplayManager gameplayManager;
     public float launchForce = 5f;
 
+    public AudioClip jumpSound;
+
     private void Start()
     {
         gameplayManager = FindObjectOfType<GameplayManager>();
@@ -20,8 +22,10 @@ public class CannonBallWeakPoint : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * launchForce, ForceMode2D.Impulse);
 
+        AudioSource.PlayClipAtPoint(jumpSound, transform.position);
+
         gameplayManager.EnemiesDefeated++;
 
         Destroy(transform.parent.gameObject);
-    }
+    } 
 }

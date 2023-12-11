@@ -6,6 +6,7 @@ public class Diamond : MonoBehaviour
 {
     Animator myAnimator;
     GameplayManager gameplayManager;
+    public AudioClip pickSound;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class Diamond : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
+        AudioSource.PlayClipAtPoint(pickSound, transform.position);
         Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>(), true);
         gameplayManager.FoundDiamonds++;
         myAnimator.SetBool("Finish", true);

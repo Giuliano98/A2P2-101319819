@@ -6,6 +6,7 @@ public class DoorKeyV2 : MonoBehaviour
 {
     Animator myAnimator;
     GameplayManager gameplayManager;
+    public AudioClip pickSound;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class DoorKeyV2 : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
+        AudioSource.PlayClipAtPoint(pickSound, transform.position);
         Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>(), true);
         gameplayManager.FoundKeys++;
         myAnimator.SetBool("Finish", true);

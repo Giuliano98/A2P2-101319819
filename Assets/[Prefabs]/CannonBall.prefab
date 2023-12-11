@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 10
+  jumpSound: {fileID: 8300000, guid: fefc59d3351b7ee43a165e15f64a92f8, type: 3}
 --- !u!1 &7488957296197245184
 GameObject:
   m_ObjectHideFlags: 0

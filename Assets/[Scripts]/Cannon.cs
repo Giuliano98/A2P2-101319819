@@ -15,6 +15,8 @@ public class Cannon : MonoBehaviour
     public CannonDirection direction = CannonDirection.Right; 
     public float maxDistance = 10f;
 
+    public AudioClip shootSound;
+
     public GameObject cannonballPrefab;
 
     public float reloadCooldown = 3f;
@@ -33,6 +35,7 @@ public class Cannon : MonoBehaviour
     void Shoot()
     {
         // Implement your shooting logic here
+        AudioSource.PlayClipAtPoint(shootSound, transform.position);
         GameObject cannonball = Instantiate(cannonballPrefab, transform.position, Quaternion.identity);
         CannonBall cannonballScript = cannonball.GetComponent<CannonBall>();
 

@@ -10,6 +10,7 @@ public class CannonBall : MonoBehaviour
         Left,
         Right
     }
+
     //CannonBallDirection dir = CannonBallDirection.Left;
     GameplayManager gameplayManager;
     public float speed = 5f;

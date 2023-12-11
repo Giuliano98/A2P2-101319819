@@ -167,5 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   maxDistance: 4
+  shootSound: {fileID: 8300000, guid: 22bdf093f2c6fcd4faa2773e83377d98, type: 3}
   cannonballPrefab: {fileID: 7488957296197245184, guid: f180de40201f19c4f90a75562bb8e5b9, type: 3}
   reloadCooldown: 3

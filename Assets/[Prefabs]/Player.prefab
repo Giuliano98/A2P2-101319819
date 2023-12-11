@@ -165,8 +165,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1825546243
-  m_SortingLayer: 2
+  m_SortingLayerID: -1440805593
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1424384890, guid: c939d4dd67fa7bc45a57bc2df1ad5667, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -219,6 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyAnimator: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: fefc59d3351b7ee43a165e15f64a92f8, type: 3}
+  dashSound: {fileID: 8300000, guid: 9db709d85da315f4db766615962e7e84, type: 3}
+  hitSound: {fileID: 8300000, guid: ab029ca69306e6d419e8cbd0f54b97a5, type: 3}
   moveSpeed: 5
   jumpSpeed: 11
   onGround: 0
@@ -227,6 +230,9 @@ MonoBehaviour:
   dashSpeed: 20
   dashDuration: 0.15
   dashCooldown: 1
+  screenFade: {fileID: 0}
+  lastCheckpoint: {x: 0, y: 0, z: 0}
+  invincibilityFrames: 0
 --- !u!95 &1790375855902020431
 Animator:
   serializedVersion: 5
