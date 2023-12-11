@@ -156,7 +156,11 @@ public class Player : MonoBehaviour
 
     public void DieAndRespawn()
     {
-        MyAnimator.SetTrigger("Die");
+        if (invincibilityFrames)
+            return;
+        //MyAnimator.SetTrigger("Die");
+        invincibilityFrames = true;
+        MyAnimator.SetBool("Die", true);
         DisablePlayerButtonAction();
         StartCoroutine(DeathSequence());
     }
@@ -171,6 +175,8 @@ public class Player : MonoBehaviour
         {
             EnablePlayerButtonAction();
             transform.position = lastCheckpoint;
+            MyAnimator.SetBool("Die", false);
+            invincibilityFrames = false;
             screenFade.FadeIn();
         }
         
