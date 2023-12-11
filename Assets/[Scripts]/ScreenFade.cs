@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class ScreenFade : MonoBehaviour
 {
     private Image fadeImage;
-    public float fadeDuration = 1.0f; 
+    public float fadeDuration = 1.0f;
 
+    public GameObject UI_btns;
     private void Start()
     {
         fadeImage = GetComponent<Image>();
