@@ -13,7 +13,9 @@ public class Cannon : MonoBehaviour
     Animator myAnimator;
 
     public CannonDirection direction = CannonDirection.Right; 
-    public float maxDistance = 10f; 
+    public float maxDistance = 10f;
+
+    public GameObject cannonballPrefab;
 
     public float reloadCooldown = 3f;
     bool isReloading = false;
@@ -31,6 +33,13 @@ public class Cannon : MonoBehaviour
     void Shoot()
     {
         // Implement your shooting logic here
+        GameObject cannonball = Instantiate(cannonballPrefab, transform.position, Quaternion.identity);
+        CannonBall cannonballScript = cannonball.GetComponent<CannonBall>();
+
+        if (cannonballScript != null)
+        {
+            cannonballScript.SetDirection(direction);
+        }
         Debug.Log("Shoot!!");
         myAnimator.SetTrigger("Shoot");
 
