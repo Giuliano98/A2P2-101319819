@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public GameOver gameover;
     Rigidbody2D rb;
     public Animator MyAnimator;
     GameplayManager gameplayManager;
@@ -187,7 +188,10 @@ public class Player : MonoBehaviour
             invincibilityFrames = false;
             screenFade.FadeIn();
         }
-        
+        else
+            gameover.ShowGameOverUI();
+
+
     }
 
     public void EnablePlayerButtonAction()

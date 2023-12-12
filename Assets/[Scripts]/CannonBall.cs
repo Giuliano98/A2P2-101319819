@@ -11,7 +11,6 @@ public class CannonBall : MonoBehaviour
         Right
     }
 
-    //CannonBallDirection dir = CannonBallDirection.Left;
     GameplayManager gameplayManager;
     public float speed = 5f;
 
@@ -36,12 +35,12 @@ public class CannonBall : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
+        if (collision.GetComponent<Player>().invincibilityFrames)
+            return;
 
         Destroy(gameObject);
         gameplayManager.PlayerLoseLive();
         collision.GetComponent<Player>().DieAndRespawn();
-
-        //destroy actor
     }
 
 }

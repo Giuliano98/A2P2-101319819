@@ -11,8 +11,13 @@ public class TimeManager : MonoBehaviour
 
     public float currentTime;
 
+    public bool flag = false;
+
     private void Update()
     {
+        if (flag)
+            return;
+
         currentTime += Time.deltaTime;
         timerTxt.text = currentTime.ToString("0.0");
     }

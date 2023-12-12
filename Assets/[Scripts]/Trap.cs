@@ -14,6 +14,9 @@ public class Trap : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
+        if (collision.GetComponent<Player>().invincibilityFrames)
+            return;
+
         collision.GetComponent<Player>().DieAndRespawn();
         gameplayManager.PlayerLoseLive();
     }
