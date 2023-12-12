@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
     public BackgroundMusic backgroundMusic;
     public AudioClip buttonSound;
 
-    public float targetTimeInSeconds = 60f;
+    public float targetTimeInSeconds = 45f;
     float bonusMultiplier = 1.0f;
 
     int diamondMult = 100;

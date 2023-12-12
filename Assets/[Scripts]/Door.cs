@@ -19,6 +19,6 @@ public class Door : MonoBehaviour
         if (gameplayManager.FoundKeys != gameplayManager.TotalKeys)
             return;
 
-        gameOver.ShowGameOverUI();
+        collision.GetComponent<Player>().GameOverFunction();
     }
 }

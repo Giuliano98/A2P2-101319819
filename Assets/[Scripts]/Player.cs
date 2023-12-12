@@ -211,4 +211,16 @@ public class Player : MonoBehaviour
     {
         Debug.Log("TEST1");
     }
+
+    public void GameOverFunction()
+    {
+        StartCoroutine(SimpleFadeOut());
+    }
+    IEnumerator SimpleFadeOut()
+    {
+        screenFade.FadeOut();
+        DisablePlayerButtonAction();
+        yield return new WaitForSeconds(screenFade.fadeDuration);
+        gameover.ShowGameOverUI();
+    }
 }
