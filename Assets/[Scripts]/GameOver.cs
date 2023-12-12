@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
+using System.Threading.Tasks;
 
 public class GameOver : MonoBehaviour
 {
     public BackgroundMusic backgroundMusic;
+    public AudioClip buttonSound;
 
     public float targetTimeInSeconds = 60f;
     float bonusMultiplier = 1.0f;
@@ -66,11 +68,13 @@ public class GameOver : MonoBehaviour
 
     public void ResetLevel()
     {
+        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu()
     {
+        AudioSource.PlayClipAtPoint(buttonSound, transform.position);
         SceneManager.LoadScene("MainMenu");
     }
 }
