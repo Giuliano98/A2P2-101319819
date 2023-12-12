@@ -220,7 +220,8 @@ public class Player : MonoBehaviour
     {
         screenFade.FadeOut();
         DisablePlayerButtonAction();
-        yield return new WaitForSeconds(screenFade.fadeDuration);
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Hey!");
         gameover.ShowGameOverUI();
     }
 }
